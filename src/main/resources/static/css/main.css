@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.title {
+  font-family: 'Roboto', sans-serif;
+}
+
+.playing-card {
+  font-size: 8em;
+}
+
+.DIAMOND, .HEART {
+  color: darkred;
+}
+
+input[name="playerName"] {
+  margin-bottom: 2em;
+}
+
+.disabled {
+  display: none;
+}
+
+.message {
+  background-color: #bcbcbc;
+  height: 2em;
+}
