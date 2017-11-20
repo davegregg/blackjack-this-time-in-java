@@ -2,16 +2,15 @@ package com.theironyard.blackjack.controllers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.theironyard.blackjack.models.Dealer;
 import com.theironyard.blackjack.models.Player;
 import com.theironyard.blackjack.services.Rules;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class GameController {
@@ -40,13 +39,13 @@ public class GameController {
 		dealer.deal(player, 2);
 		dealer.deal(dealer, 2);
 	}
-	
+
 	private void setupPage() {
 		page.addObject("title", "Blackjack");
 		page.addObject("player", player);
 		page.addObject("dealer", dealer);
 	}
-
+	
 	@RequestMapping("/")
 	public ModelAndView launch(HttpServletRequest request, Boolean onDeal, String playerName) {
 		switch(request.getMethod()) {
@@ -87,7 +86,7 @@ public class GameController {
 	
 	private String sanitizeString(String input) {
 		Matcher safeCharacters = Pattern.compile("[\\w\\-.(),' ]")
-				   					    .matcher(input);
+				   					    						.matcher(input);
 		String naivelySanitized = "";
 		while (safeCharacters.find()) naivelySanitized += safeCharacters.group();
 		
